@@ -1,0 +1,105 @@
+﻿@model UserRegisterViewModel
+@{
+    Layout = null;
+}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>Kayıt Paneli</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords"
+		  content="Invent Signup Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- //Meta tag Keywords -->
+	<!--/Style-CSS -->
+	<link rel="stylesheet" href="~/register2/css/style.css" type="text/css" media="all" />
+	<!--//Style-CSS -->
+</head>
+<body>
+	<section class="w3l-login-6">
+		<div class="login-hny">
+			<div class="form-content">
+				<div class="form-right">
+					<div class="overlay">
+						<div class="grid-info-form">
+							<h5>HOŞ GELDİNİZ...</h5>
+							<h3>Yeni Hesap Oluşturun</h3>
+							<p>
+								Traversal, unutulmaz seyahat deneyimlerini sizlerle buluşturmayı amaçlayan bir turizm ve gezi platformudur. Dünyanın dört bir yanındaki en güzel destinasyonları keşfetmeniz için özel olarak tasarlanmış turlar sunuyoruz. Uzman ekibimizle, hem konforlu hem de heyecan verici bir seyahat deneyimi yaşamanız için buradayız. Hayalinizdeki yolculuğu planlamak için bize katılın!
+							</p>
+							<a href="/Login/SignIn/" class="read-more-1 btn">GİRİŞ YAPIN</a>
+						</div>
+					</div>
+				</div>
+				<div class="form-left">
+					<div class="middle">
+						<h4>Bize Katılın</h4>
+						<p>Dünyanın dört bir yanındaki turlarımıza katılmak için kayıt olun.</p>
+					</div>
+					@using (Html.BeginForm("Register", "Login", FormMethod.Post, new { @class = "signin-form" }))
+					{
+						<div class="form-input">
+							<label>Adınız</label>
+							<input type="text" asp-for="Name"  placeholder="Ad"  />
+						    <span class="text-danger" asp-validation-for="Name"></span>
+						</div>
+						<div class="form-input">
+							<label>Soyadınız</label>
+							<input type="text"  asp-for="Surname" placeholder="Soyad"  />
+							<span class="text-danger" asp-validation-for="Surname"></span>
+						</div>
+						<div class="form-input">
+							<label>Kullanıcı Adınız</label>
+							<input type="text"  asp-for="UserName" placeholder="Kullanıcı Adı"  />
+							<span class="text-danger" asp-validation-for="UserName"></span>
+						</div>
+						<div class="form-input">
+							<label>E-Posta</label>
+							<input type="email"  asp-for=Mail placeholder="E-Posta"  />
+							<span class="text-danger" asp-validation-for="Mail"></span>
+						</div>
+						<div class="form-input">
+							<label>Şifre</label>
+							<input type="password"  asp-for="Password" placeholder="Şifre"  />
+							<span class="text-danger" asp-validation-for="Password"></span>
+						</div>
+						<div class="form-input">
+							<label>Şifre Tekrar</label>
+							<input type="password"  asp-for="ConfirmPassword" placeholder="Şifre"  />
+							<span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+						</div>
+						<div class="text-danger" asp-validation-summary="ModelOnly">
+						</div>
+						<br />
+						<button style="margin-top:-5px" class="btn">Kayıt Ol</button>
+					}
+					<div class="copy-right text-center">
+						<p>
+							© @DateTime.Now.Year Traversal Core 5.0 Projesi. Tüm Hakları Saklıdır. | Design by
+							<a href="http://w3layouts.com/" target="_blank">W3layouts</a>
+						</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!-- //login-section -->
+</body>
+
+</html>

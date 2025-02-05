@@ -1,0 +1,40 @@
+﻿@model List<ContactUs>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    int sayac = 0;
+}
+<div class="card">
+    <h5 class="card-header">Bize Ulaşın Mesajları</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Ad Soyad:</th>
+                    <th>Maİl:</th>
+                    <th>Tarİh:</th>
+                    <th>Mesaj Detayları:</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var x in Model)
+                {
+                   
+                    <tr>
+                        @{
+                            sayac++;
+                        }
+                        <td>@sayac</td>
+                        <td>@x.Name</td>
+                        <td>@x.Mail</td>
+                        <td><span class="badge bg-label-primary me-1">@Convert.ToDateTime(x.MessageDate).ToString("dd/MM/yyyy")</span></td>
+                        <td><a href="/Admin/ContactUs/MessageDetails/@x.ContactUsId/" class="btn btn-info" >Detaylar</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

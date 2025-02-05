@@ -1,0 +1,43 @@
+﻿@model List<TblReservation>
+@{
+    ViewData["Title"] = "ReservationUser";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    int sayac = 0;
+}
+<div class="card">
+    <h5 class="card-header">Geçmiş Rezervasyonlar</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Rota</th>
+                    <th>KİŞİ SAYISI</th>
+                    <th>TARİH</th>
+                    <th>DURUM</th>
+                    <th>DETAYLAR</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        @{
+                            sayac = sayac + 1;
+                        }
+                        <td>@sayac</td>
+                        <td><span class="badge bg-label-primary me-1">@x.Destination.City</span></td>
+                        <td>@x.PersonCount</td>
+                        <td>@Convert.ToDateTime(x.ReservationDate).ToString("dd/MMM/yyyy")</td>
+                        <td>@x.Status</td>
+                        <td><a href="#" class="btn btn-info">Detaylar</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <a style="margin-top:10px;color:black" href="/Login/Register/" class="btn btn-success">Yeni Kullanıcı Kaydı</a>
+</div>
+
+
+

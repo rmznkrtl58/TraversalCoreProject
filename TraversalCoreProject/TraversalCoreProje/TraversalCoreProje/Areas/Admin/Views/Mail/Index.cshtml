@@ -1,0 +1,33 @@
+﻿@using TraversalCoreProje.Areas.Admin.Models
+@model MailRequest
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Mail Gönderim İşlemi</h5>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-icon-default-company">Alıcı Maİl:</label>
+                        @Html.TextBoxFor(x => x.ReceiverMail, new { @class = "form-control", @placeholder = "Alıcı" })
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-icon-default-company">Konu:</label>
+                        @Html.TextBoxFor(x => x.Subject, new { @class = "form-control", @placeholder = "Konu" })
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-icon-default-company">İçerik:</label>
+                        @Html.TextAreaFor(x => x.Content, new { @class = "form-control", @placeholder = "Mesajınız",@row=4 })
+                    </div>
+                    <button class="btn btn-success">Mesaj Gönder</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

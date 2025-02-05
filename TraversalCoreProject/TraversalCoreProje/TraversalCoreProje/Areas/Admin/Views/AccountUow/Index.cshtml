@@ -1,0 +1,32 @@
+﻿@model AccountViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Personel Prim Transferi (Unit Of Work)</h5>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-icon-default-company">Gönderen Id:</label>
+                        @Html.TextBoxFor(x => x.SenderId, new { @class = "form-control", @placeholder = "Gönderen" })
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-icon-default-company">Alıcı Id:</label>
+                        @Html.TextBoxFor(x => x.ReceiverId, new { @class = "form-control", @placeholder = "Alıcı" })
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-icon-default-company">Para Mİktarı:</label>
+                        @Html.TextAreaFor(x => x.Amount, new { @class = "form-control", @placeholder = "Para Miktarı", @rows = 2 })
+                    </div>
+                    <button class="btn btn-success">Hesaba Aktar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

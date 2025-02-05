@@ -1,0 +1,31 @@
+﻿@model AnnouncementUpdateDTO
+@{
+    ViewData["Title"] = "UpdateAnnouncement";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Duyuru Güncelleme Sayfası</h5>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    @Html.HiddenFor(x=>x.AnnouncementId)
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-icon-default-company">Duyuru Başlığı:</label>
+                        @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Başlık" })
+                        @Html.ValidationMessageFor(x => x.Title, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-icon-default-company">Duyuru İçerİğİ:</label>
+                        @Html.TextAreaFor(x => x.Content, new { @class = "form-control", @placeholder = "İçerik", @rows = 4 })
+                        @Html.ValidationMessageFor(x => x.Content, "", new { @class = "text-danger" })
+                    </div>
+                    <button class="btn btn-success">Duyuruyu Güncelle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

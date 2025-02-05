@@ -1,0 +1,37 @@
+﻿@model UserEditViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Member/Views/Shared/_Member2Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<form method="post" enctype="multipart/form-data">
+    <div style="margin-top:10px">
+        <label style="font-size:15px">Ad:</label>
+        <input type="text" asp-for="name" class="form-control" />
+    </div>
+    <div style="margin-top:10px">
+        <label style="font-size:15px">Soyad:</label>
+        <input type="text" asp-for="surName" class="form-control" />
+    </div>
+    <div style="margin-top:10px">
+        <label style="font-size:15px">E-Posta:</label>
+        <input type="text" asp-for="mail" class="form-control" />
+    </div>
+    <div style="margin-top:10px">
+        <label style="font-size:15px">Şifre:</label>
+        <input type="password" asp-for="password" class="form-control" />
+    </div>
+    <div style="margin-top:10px">
+        <label style="font-size:15px">Şifre Tekrar:</label>
+        <input type="password" asp-for="confirmPassword" class="form-control" />
+        @Html.ValidationMessageFor(x => x.confirmPassword,"",new{@class="text-danger"})
+    </div>
+    <div style="margin-top:10px">
+        <label style="font-size:15px">Dosya Seçin:</label>
+        <input type="file" asp-for="Image" class="form-control" />
+    </div>
+    <button style="margin-top:6px" class="btn btn-success">Güncelle</button>
+</form>
+

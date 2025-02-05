@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewData["Title"] = "MyOldReservation";
+    Layout = "~/Areas/Member/Views/Shared/_Member2Layout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title" style="color:red;font-size:25px">Geçmiş Rezervasyonlarım</h3>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                        <li><a data-action="close"><i class="ft-x"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-content collapse show">
+                <div class="card-body">
+                    <p style="font-size:20px"><span class="text-bold-600">Süresi geçmiş veya iptal olan rezervasyonlarınız görüntülenmektedir.</span></p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">Rota:</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KİŞİ SAYISI:</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">TARİH:</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Durum:</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var x in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex px-2">
+                                                <div class="my-auto">
+                                                    <h6 class="mb-0 text-sm">@x.Destination.City</h6>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p class="text-sm font-weight-bold mb-0">@x.PersonCount</p>
+                                        </td>
+                                        <td>
+                                            <span class="text-xs font-weight-bold">@Convert.ToDateTime(x.ReservationDate).ToString("dd/MM/yyyy")</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-xs font-weight-bold">@x.Status</span>
+                                        </td>
+                                        <td>
+                                            <a style="margin-right:-100px" href="/Member/Reservation/ReservationDetails/@x.ReservationId/" class="btn btn-warning">Detaylar</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

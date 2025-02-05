@@ -1,0 +1,45 @@
+﻿@model List<AppUser>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    int sayac = 0;
+}
+<div class="card">
+    <h5 class="card-header">Kullanıcı Listesi</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Ad Soyad</th>
+                    <th>Kullanıcı Adı</th>
+                    <th>Maİl</th>
+                    <th>Düzenle</th>
+                    <th>Yorumlar</th>
+                    <th>Tur GeçmİŞİ</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var x in Model)
+                { 
+                    <tr>
+                        @{
+                            sayac = sayac + 1;
+                        }
+                        <td>@sayac</td>
+                        <td>@x.Name @x.Surname</td>
+                        <td><span class="badge bg-label-primary me-1">@x.UserName</span></td>
+                        <td>@x.Email</td>
+                        <td><a href="" class="btn btn-warning">Düzenle</a></td>
+                        <td><a href="" class="btn btn-info">Yorumlar</a></td>
+                        <td><a href="/Admin/User/ReservationUser/@x.Id" class="btn btn-primary">Tur Geçmişi</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <a style="margin-top:10px;color:black" href="/Login/Register/" class="btn btn-success">Yeni Kullanıcı Kaydı</a>
+</div>
+
+
+

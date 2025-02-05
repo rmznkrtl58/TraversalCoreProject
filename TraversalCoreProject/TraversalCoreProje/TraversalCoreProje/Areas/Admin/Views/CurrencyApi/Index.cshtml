@@ -1,0 +1,31 @@
+﻿@model IEnumerable<BookingExchangeViewModel.Exchange_Rates>//Arraylı listelemelerde IEnumerable kullanıyoz
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="card">
+    <h4 class="card-header" style="color:red">Türk Lirası Kur Bilgileri (Api)</h4>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Kur Adı:</th>
+                    <th>Kur Oranı:</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var x in Model)
+                {
+
+                    <tr>
+                        <td>@x.currency</td>
+                        <td>@x.exchange_rate_buy</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+

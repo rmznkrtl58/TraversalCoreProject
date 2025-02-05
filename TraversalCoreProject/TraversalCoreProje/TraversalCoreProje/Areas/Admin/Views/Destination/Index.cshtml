@@ -1,0 +1,38 @@
+﻿@model List<Destination>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="card">
+    <h5 class="card-header">Rota Listesi</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Ülke</th>
+                    <th>Gün/Gece</th>
+                    <th>FİYAT</th>
+                    <th>Kontenjan</th>
+                    <th>SİTEDE GÖR</th>
+                    <th>SİL</th>
+                    <th>Güncelle</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach(var x in Model){
+                <tr>
+                    <td>@x.City</td>
+                    <td>@x.DayNight</td>
+                    <td>$@x.Price</td>
+                    <td><span class="badge bg-label-primary me-1">@x.Capacity</span></td>
+                    <td><a href="/Destination/DestinationDetails/@x.DestinationId" class="btn btn-primary">Vitrin</a></td>
+                        <td><a href="/Admin/Destination/DeleteDestination/@x.DestinationId" class="btn btn-danger">Sil</a></td>
+                        <td><a href="/Admin/Destination/EditDestination/@x.DestinationId" class="btn btn-warning">Güncelle</a></td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <a style="margin-top:10px;color:black" href="/Admin/Destination/AddDestination/" class="btn btn-success">Rota Ekle</a>
+</div>
+

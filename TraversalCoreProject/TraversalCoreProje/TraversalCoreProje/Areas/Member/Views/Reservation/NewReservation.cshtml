@@ -1,0 +1,31 @@
+﻿@model TblReservation
+@{
+    ViewData["Title"] = "NewReservation";
+    Layout = "~/Areas/Member/Views/Shared/_Member2Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<form method="post" class="form-group">
+    <div style="margin-top:7px" >
+        <label style="font-size:18px">Rota Seçiniz...</label>
+        @Html.DropDownListFor(x => x.Destination, (List<SelectListItem>)ViewBag.d,new{@class="form-control"})
+    </div>
+    <div style="margin-top:7px">
+        <label style="font-size:18px">Tarih Seçiniz...</label>
+        <input type="date" asp-for="ReservationDate" class="form-control" />
+    </div>
+    <div style="margin-top:7px">
+        <label style="font-size:18px">Kaç Kişi Gidecek?</label>
+        <input type="number" asp-for="PersonCount" class="form-control" />
+    </div>
+    <div style="margin-top:7px">
+        <label style="font-size:18px">Eklemek İstedikleriniz.</label>
+        @Html.TextAreaFor(x=>x.Description,new{@class="form-control",@rows=6})
+    </div>
+    <button style="margin-top:7px;margin-left:5px" class="btn btn-primary">Rezervasyon Yap</button>
+</form>
+<br />
+
+
+

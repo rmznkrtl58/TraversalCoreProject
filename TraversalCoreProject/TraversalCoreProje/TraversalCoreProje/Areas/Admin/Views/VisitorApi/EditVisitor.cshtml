@@ -1,0 +1,41 @@
+﻿@model VisitorViewModel
+@{
+    ViewData["Title"] = "EditVisitor";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Ziyaretçi Güncelleme Sayfası (Api)</h5>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("EditVisitor","VisitorApi",FormMethod.Post)){
+                    @Html.HiddenFor(x=>x.VisitorId)
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-icon-default-company">Ad:</label>
+                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Ziyaretçi Adı" })
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-icon-default-company">Soyad:</label>
+                        @Html.TextBoxFor(x => x.Surname, new { @class = "form-control", @placeholder = "Ziyaretçi Soyadı" })
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-icon-default-company">E-Posta:</label>
+                        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control", @placeholder = "Ziyaretçi Mail" })
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-icon-default-company">Şehİr:</label>
+                        @Html.TextBoxFor(x => x.City, new { @class = "form-control", @placeholder = "Ziyaretçi Şehir" })
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-icon-default-company">Ülke:</label>
+                        @Html.TextBoxFor(x => x.Country, new { @class = "form-control", @placeholder = "Ziratçi Ülke" })
+                    </div>
+                    <button class="btn btn-success">Ziyaretçi Güncelle</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

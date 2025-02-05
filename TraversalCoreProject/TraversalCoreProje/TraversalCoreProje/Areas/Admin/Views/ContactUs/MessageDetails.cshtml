@@ -1,0 +1,25 @@
+﻿@model ContactUs
+@{
+    ViewData["Title"] = "MessageDetails";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Mesaj Detayları</h5>
+            </div>
+            <div class="card-body">
+                <form method="get">
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-icon-default-company">Mesaj Bİlgİleri:</label>
+                        <input type="text" value="@Model.Subject" class="form-control" readonly/>
+                        <br />
+                        <textarea readonly class="form-control">@Model.MessageContent</textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

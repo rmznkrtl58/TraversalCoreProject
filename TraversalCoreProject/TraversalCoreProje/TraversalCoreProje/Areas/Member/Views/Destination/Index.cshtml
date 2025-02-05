@@ -1,0 +1,100 @@
+﻿@model List<Destination>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Member/Views/Shared/_Member2Layout.cshtml";
+    string text = " ";
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title" style="color:red;font-size:25px">Tüm Rotalar</h3>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                        <li><a data-action="close"><i class="ft-x"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-content collapse show">
+                <div class="card-body">
+                    <p style="font-size:20px;margin-top:-20px;margin-bottom:30px"><span class="text-bold-600">Birbirinden eğlenceli,macera dolu,kültürel olarak zengin ülkelerin şehirlerini rotalarınıza ekleyebilirsiniz.</span></p>
+
+                    <form method="get" action="/Member/Destination/Index/">
+                        <div >
+                            <label>Aranacak Şehir</label>
+                            <input type="text" class="form-control" name="searchData" value="@ViewData["stringValue"]" placeholder="Şehir" />
+                            <input style="margin-top:7px;margin-bottom:15px" type="submit" value="search" class="btn btn-info" />
+                        </div>
+                    </form>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Şehİr</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Fİyat</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Süre</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Kapasİte</th>
+                                    <th style="margin-left:10px" class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2"></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var x in Model)
+                                {
+                                    if (x.Capacity > 0 && x.Capacity < 15)
+                                    {
+                                        text = "progress-bar bg-gradient-danger";
+                                    }
+                                    if (x.Capacity > 16 && x.Capacity < 35)
+                                    {
+                                        text = "progress-bar bg-gradient-primary";
+                                    }
+                                    if (x.Capacity > 36 && x.Capacity < 50)
+                                    {
+                                        text = "progress-bar bg-gradient-info";
+                                    }
+                                    if (x.Capacity > 51 && x.Capacity < 100)
+                                    {
+                                        text = "progress-bar bg-gradient-success";
+                                    }
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex px-2">
+                                                <div class="my-auto">
+                                                    <h6 class="mb-0 text-sm">@x.City</h6>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p class="text-sm font-weight-bold mb-0">$@x.Price</p>
+                                        </td>
+                                        <td>
+                                            <span class="text-xs font-weight-bold">@x.DayNight</span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                <span class="me-2 text-xs font-weight-bold">@x.Capacity%</span>
+                                                <div>
+                                                    <div class="progress">
+                                                        <div class="@text" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: @x.Capacity%;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a style="margin-right:-100px" href="/Destination/DestinationDetails/@x.DestinationId/" class="btn btn-warning">Detaylar</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

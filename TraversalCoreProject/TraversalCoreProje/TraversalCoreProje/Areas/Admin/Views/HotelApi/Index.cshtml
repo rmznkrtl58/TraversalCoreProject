@@ -1,0 +1,40 @@
+﻿@model IEnumerable<HotelApiViewModel.Result>//Arraylı listelemelerde IEnumerable kullanıyoz
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+<div class="card">
+    <h4 class="card-header" style="color:red">Hotel Listesi</h4>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Otel Adı:</th>
+                    <th>Otel Puanı:</th>
+                    <th>Otel Değerlendirmesi:</th>
+                    <th>Detaylar:</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        @{
+                            count++;
+                        }
+                        <td>@count</td>
+                        <td>@x.hotel_name</td>
+                        <td>@x.review_score</td>
+                        <td><a href="#" class="btn btn-primary">Detaylar</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,41 @@
+﻿@using DTOLayer.DTOs.AnnouncementDTOs
+@model List<AnnouncementListDTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    int sayac = 0;
+}
+<div class="card">
+    <h4 class="card-header" style="color:darkgreen">Duyurular</h4>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Başlık:</th>
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var x in Model)
+                {
+
+                    <tr>
+                        @{
+                            sayac++;
+                        }
+                        <td>@sayac</td>
+                        <td>@x.Title</td>
+                        <td><a href="/Admin/Announcement/DeleteAnnouncement/@x.AnnouncementId" class="btn btn-danger">Sil</a></td>
+                        <td><a href="/Admin/Announcement/UpdateAnnouncement/@x.AnnouncementId" class="btn btn-warning">Güncelle</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <a href="/Admin/Announcement/AddAnnouncement/" style="color:black" class="btn btn-success">Yeni Duyuru</a>
+</div>
+
+
+

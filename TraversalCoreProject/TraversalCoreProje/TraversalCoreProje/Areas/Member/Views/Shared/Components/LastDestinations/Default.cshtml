@@ -1,0 +1,53 @@
+﻿@model List<Destination>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title" style="color:red;font-size:25px">Son Rotalar</h3>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                        <li><a data-action="close"><i class="ft-x"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-content collapse show">
+                <div class="card-body">
+                    <p style="font-size:20px"><span class="text-bold-600">Son Eklenen 4 Rota Aşağıda Görüntülenmektedir.</span></p>
+                      <div class="row">
+                @foreach(var x in Model)
+                {
+                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                    <div class="card card-blog card-plain">
+                        <div class="position-relative">
+                            <a class="d-block shadow-xl border-radius-xl">
+                                <img src="@x.Image1" style="height:180px;width:300px" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                            </a>
+                        </div>
+                        <div class="card-body px-1 pb-0">
+                            <p class="text-gradient text-dark mb-2 text-sm">@x.City</p>
+                            <a href="#">
+                                <h5>
+                                    @x.DayNight
+                                </h5>
+                            </a>
+                            <p class="mb-4 text-sm">
+                                @x.Description
+                            </p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                    <a href="/Destination/DestinationDetails/@x.DestinationId" class="btn btn-outline-primary btn-sm mb-0">Sitede Gör</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

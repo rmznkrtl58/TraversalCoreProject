@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en"
+      class="light-style layout-menu-fixed"
+      dir="ltr"
+      data-theme="theme-default"
+      data-assets-path="../assets/"
+      data-template="vertical-menu-template-free">
+<body>
+            <div class="row">
+@await Component.InvokeAsync("DashboardBanner")
+@await Component.InvokeAsync("DashboardStatistics1")
+@await Component.InvokeAsync("DashboardChart1")            
+                            <!--/ Total Revenue -->
+@await Component.InvokeAsync("DashboardStatistics2")
+                        </div>
+                        <div class="row">
+@await Component.InvokeAsync("Destination1")                         
+@await Component.InvokeAsync("Destination2")
+@await Component.InvokeAsync("AdminGuideList")
+                        </div>
+                 
+</body>
+</html>
+

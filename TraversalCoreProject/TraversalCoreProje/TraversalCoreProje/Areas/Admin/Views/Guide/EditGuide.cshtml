@@ -1,0 +1,37 @@
+﻿@model Guide
+@{
+    ViewData["Title"] = "EditGuide";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Rehber Güncelleme Sayfası</h5>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    @Html.HiddenFor(x=>x.GuideId)
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-icon-default-company">Ad Soyad:</label>
+                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Ad Soyad" })
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-icon-default-company">Resİm:</label>
+                        @Html.TextBoxFor(x => x.Image, new { @class = "form-control", @placeholder = "Resim" })
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-icon-default-company">Kısa Açıklama:</label>
+                        @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @placeholder = "Açıklama", @rows = 2 })
+                    </div>
+                    <button class="btn btn-success">Rehber Güncelle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
